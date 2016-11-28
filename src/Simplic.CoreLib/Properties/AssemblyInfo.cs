@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("simplic-corelib")]
 [assembly: AssemblyDescription("Contains a set of simplic core libraries")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Simplic GMBH")]
+[assembly: AssemblyCompany("SIMPLIC GmbH")]
 [assembly: AssemblyProduct("Simplic.PlugIn.Logistics")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright © SIMPLIC GmbH 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -34,3 +34,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("6.0.0")]
 [assembly: AssemblyFileVersion("6.0.0")]
+[assembly: AssemblyInformationalVersion("6.0.0")]
