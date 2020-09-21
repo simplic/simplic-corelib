@@ -310,6 +310,16 @@ namespace Simplic.Cache
         }
 
         /// <summary>
+        /// Returns the instance of a generic type just by passing its content type. The type of the data will be used for getting the item
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <returns></returns>
+        public GenericCacheItem<T> GenericCacheItemNoException<T>()
+        {
+            return GetObjectNoException<GenericCacheItem<T>>(typeof(T).ToString());
+        }
+
+        /// <summary>
         /// Leert den gesamten Cache
         /// </summary>
         public void ClearCache()
