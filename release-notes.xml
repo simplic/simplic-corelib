@@ -1,5 +1,5 @@
 <ReleaseNotes>
-  <ChangeSet>
+  <ChangeSet guid="e73717b3-3084-4bc2-94c3-8cca1e99f9d9">
     <Change type="bug">Fixes a bug that caused a stackoverflow exception when trying to serialize PreciseDecimals.</Change>
     <Change type="feature">Makes PreciseDecimals serializable and deserializable by default.</Change>
   </ChangeSet>
