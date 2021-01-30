@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ENV", "ENV", "{0AE4C5C9-EA74-460B-86E7-74A63374F026}"
 	ProjectSection(SolutionItems) = preProject
 		azure-pipelines.yml = azure-pipelines.yml
+		..\release-notes.xml = ..\release-notes.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplic.CoreLib.StatefulCollection", "Test\Simplic.CoreLib.StatefulCollection\Simplic.CoreLib.StatefulCollection.csproj", "{B4D8BEBC-C90E-42D6-83C1-8DA451CC21A3}"

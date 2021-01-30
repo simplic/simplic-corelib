@@ -46,7 +46,10 @@ namespace Simplic.Data.Converter
         /// <param name="serializer"></param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            serializer.Serialize(writer, value);
+            if (value is PreciseDecimal p)
+                writer.WriteValue(p.ToDouble(null));
+
+            writer.WriteValue(value);
         }
     }
 }
