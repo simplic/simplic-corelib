@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Simplic.Data.Converter;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +11,8 @@ namespace Simplic.Data
     /// <summary>
     /// A decimal that is precise without rounding failure
     /// </summary>
-    public struct PreciseDecimal : IComparable, IConvertible, IFormattable
+    [JsonConverter(typeof(PreciseDecimalJsonConverter))]
+    public struct PreciseDecimal : IComparable, IConvertible, IFormattable, IComparable<double>, IEquatable<double>
     {
         const int N = 8;
         private readonly double _value;
@@ -285,6 +288,16 @@ namespace Simplic.Data
         public object ToType(Type conversionType, IFormatProvider provider)
         {
             return Convert.ChangeType(_value, conversionType);
+        }
+
+        public int CompareTo(double other)
+        {
+            return _value.CompareTo(other);
+        }
+
+        public bool Equals(double other)
+        {
+            return _value.Equals(other);
         }
         #endregion
     }
