@@ -30,8 +30,10 @@ namespace Simplic.Data.Converter
         /// <returns></returns>
         public override PreciseDecimal ReadJson(JsonReader reader, Type objectType, PreciseDecimal existingValue, bool hasExistingValue, JsonSerializer serializer)
         {
-            var s = (double)reader.Value;
+            if (reader.Value == null)
+                return default(PreciseDecimal);
 
+            var s = (double)reader.Value;
             return new PreciseDecimal(s);
         }
     }
