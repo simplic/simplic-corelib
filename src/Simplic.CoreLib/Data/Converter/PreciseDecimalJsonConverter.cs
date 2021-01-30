@@ -4,52 +4,35 @@ using System;
 namespace Simplic.Data.Converter
 {
     /// <summary>
-    /// Custom converter for PreciseDecimal, only needed for serialize
+    /// Json precise decimal converter
     /// </summary>
-    public class PreciseDecimalJsonConverter : JsonConverter
+    public class PreciseDecimalJsonConverter : JsonConverter<PreciseDecimal>
     {
         /// <summary>
-        /// Sets what type can convert
-        /// </summary>
-        /// <param name="objectType"></param>
-        /// <returns></returns>
-        public override bool CanConvert(Type objectType)
-        {
-            return true;
-        }
-
-        /// <summary>
-        /// Handles the PreciseDecimal properties
-        /// </summary>
-        /// <param name="reader"></param>
-        /// <param name="objectType"></param>
-        /// <param name="existingValue"></param>
-        /// <param name="serializer"></param>
-        /// <returns></returns>
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-        {
-            var value = reader.Value;
-            if (objectType == typeof(PreciseDecimal) || objectType == typeof(PreciseDecimal?))
-            {
-                if (value == null) return null;
-                return new PreciseDecimal(Convert.ToDouble(value));
-            }
-
-            return serializer.Deserialize(reader);
-        }
-
-        /// <summary>
-        /// Not required  
+        /// Write to json
         /// </summary>
         /// <param name="writer"></param>
         /// <param name="value"></param>
         /// <param name="serializer"></param>
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, PreciseDecimal value, JsonSerializer serializer)
         {
-            if (value is PreciseDecimal p)
-                writer.WriteValue(p.ToDouble(null));
+            writer.WriteValue(value.ToDouble(null));
+        }
 
-            writer.WriteValue(value);
+        /// <summary>
+        /// Read from json
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="objectType"></param>
+        /// <param name="existingValue"></param>
+        /// <param name="hasExistingValue"></param>
+        /// <param name="serializer"></param>
+        /// <returns></returns>
+        public override PreciseDecimal ReadJson(JsonReader reader, Type objectType, PreciseDecimal existingValue, bool hasExistingValue, JsonSerializer serializer)
+        {
+            var s = (double)reader.Value;
+
+            return new PreciseDecimal(s);
         }
     }
 }
