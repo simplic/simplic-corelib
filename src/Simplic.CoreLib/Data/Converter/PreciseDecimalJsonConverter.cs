@@ -1,40 +1,32 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Globalization;
 
 namespace Simplic.Data.Converter
 {
-    /// <summary>
-    /// Json precise decimal converter
-    /// </summary>
-    public class PreciseDecimalJsonConverter : JsonConverter<PreciseDecimal>
+    public class PreciseDecimalJsonConverter : JsonConverter
     {
-        /// <summary>
-        /// Write to json
-        /// </summary>
-        /// <param name="writer"></param>
-        /// <param name="value"></param>
-        /// <param name="serializer"></param>
-        public override void WriteJson(JsonWriter writer, PreciseDecimal value, JsonSerializer serializer)
+        public override bool CanConvert(Type objectType)
         {
-            writer.WriteValue(value.ToDouble(null));
+            return objectType == typeof(PreciseDecimal) || objectType == typeof(double);
         }
 
-        /// <summary>
-        /// Read from json
-        /// </summary>
-        /// <param name="reader"></param>
-        /// <param name="objectType"></param>
-        /// <param name="existingValue"></param>
-        /// <param name="hasExistingValue"></param>
-        /// <param name="serializer"></param>
-        /// <returns></returns>
-        public override PreciseDecimal ReadJson(JsonReader reader, Type objectType, PreciseDecimal existingValue, bool hasExistingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            if (reader.Value == null)
-                return default(PreciseDecimal);
+            var value = serializer.Deserialize<double?>(reader);
+            if (value == null)
+                return null;
 
-            var s = (double)reader.Value;
-            return new PreciseDecimal(s);
+            return new PreciseDecimal(value.Value);
+
+        }
+
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            if(value == null)
+                writer.WriteValue(default(PreciseDecimal));
+
+            writer.WriteValue(((PreciseDecimal)value).ToDouble(null));
         }
     }
 }
