@@ -3,7 +3,7 @@
     <Change type="bug">Fixes a bug that caused a stackoverflow exception when trying to serialize PreciseDecimals.</Change>
     <Change type="feature">Makes PreciseDecimals serializable and deserializable by default.</Change>
   </ChangeSet>
-  <ChangeSet>
+  <ChangeSet guid="8345f6b0-e788-45f7-ba2d-7b4b9e4984ce">
     <Change type="enhancement">StatefulCollection is now deriving from IList.</Change>
   </ChangeSet>
 </ReleaseNotes>
