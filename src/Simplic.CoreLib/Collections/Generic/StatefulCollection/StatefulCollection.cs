@@ -390,11 +390,20 @@ namespace Simplic.Collections.Generic
             return index;
         }
 
+        /// <summary>
+        /// Not implemented
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="item"></param>
         public void Insert(int index, T item)
         {
             throw new NotImplementedException($"{nameof(Insert)} is not available for {nameof(StatefulCollection<T>)}");
         }
 
+        /// <summary>
+        /// Not implemented
+        /// </summary>
+        /// <param name="index"></param>
         public void RemoveAt(int index)
         {
             throw new NotImplementedException($"{nameof(RemoveAt)} is not available for {nameof(StatefulCollection<T>)}");
