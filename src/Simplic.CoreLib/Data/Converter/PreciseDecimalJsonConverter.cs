@@ -18,7 +18,6 @@ namespace Simplic.Data.Converter
                 return null;
 
             return new PreciseDecimal(value.Value);
-
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
