@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -8,7 +9,7 @@ namespace Simplic.Collections.Generic
     /// Collection which handles internal a list of : new, not changed and deleted items.
     /// </summary>
     /// <typeparam name="T">Item type</typeparam>
-    public class StatefulCollection<T> : ICollection<T>
+    public class StatefulCollection<T> : IList<T>
     {
         public delegate void AddItemEventHandler(object sender, AddItemEventArgs args);
         public delegate void RemoveItemEventHandler(object sender, RemoveItemEventArgs args);
@@ -76,6 +77,16 @@ namespace Simplic.Collections.Generic
         public StatefulCollection(IEnumerable<T> initialList)
         {
             items = new List<T>(initialList);
+            newItems = new List<T>();
+            removedItems = new List<T>();
+        }
+
+        /// <summary>
+        /// Initialize new stateful iterable
+        /// </summary>
+        public StatefulCollection()
+        {
+            items = new List<T>();
             newItems = new List<T>();
             removedItems = new List<T>();
         }
@@ -358,6 +369,36 @@ namespace Simplic.Collections.Generic
                 CollectionCommitted?.Invoke(this, new CollectionCommittedEventArgs());
             }
         }
+
+        /// <summary>
+        /// Gets the index of a specific item
+        /// </summary>
+        /// <param name="item">Item type</param>
+        /// <returns>Index</returns>
+        public int IndexOf(T item)
+        {
+            var index = items.IndexOf(item);
+
+            if (index == -1)
+            {
+                index = newItems.IndexOf(item);
+
+                if (index != -1)
+                    index = index += items.Count;
+            }
+
+            return index;
+        }
+
+        public void Insert(int index, T item)
+        {
+            throw new NotImplementedException($"{nameof(Insert)} is not available for {nameof(StatefulCollection<T>)}");
+        }
+
+        public void RemoveAt(int index)
+        {
+            throw new NotImplementedException($"{nameof(RemoveAt)} is not available for {nameof(StatefulCollection<T>)}");
+        }
         #endregion
 
         #region Public Member
@@ -404,6 +445,8 @@ namespace Simplic.Collections.Generic
                 return items.IsReadOnly;
             }
         }
+
+        public T this[int index] { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
         #endregion
     }
 }
