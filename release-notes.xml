@@ -6,4 +6,7 @@
   <ChangeSet guid="8345f6b0-e788-45f7-ba2d-7b4b9e4984ce">
     <Change type="enhancement">StatefulCollection is now deriving from IList.</Change>
   </ChangeSet>
+  <ChangeSet guid="3c1ab5e5-8f06-45a9-b6ce-93f4a45b5a5c">
+    <Change type="enhancement">StatefulCollection is now deriving from ICollection, and not from IList anymore.</Change>
+  </ChangeSet>
 </ReleaseNotes>
