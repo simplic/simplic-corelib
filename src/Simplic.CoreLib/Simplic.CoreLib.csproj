@@ -104,7 +104,6 @@
     <Compile Include="Text\RegularExpressions\RegexFilter.cs" />
     <Compile Include="Security\Cryptography\CryptographyHelper.cs" />
     <Compile Include="Security\Principal\WindowsPrincipalHelper.cs" />
-    <Compile Include="Simplic\BaseException.cs" />
     <Compile Include="Simplic\CIExpandoObject.cs" />
     <Compile Include="Simplic\ConvertHelper.cs" />
     <Compile Include="Simplic\StringHelper.cs" />
