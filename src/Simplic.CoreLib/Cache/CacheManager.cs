@@ -162,7 +162,7 @@ namespace Simplic.Cache
                             {
                                 if (!ignoreIfExists)
                                 {
-                                    throw new CoreException("S-0000005", "17771eac-511e-4d83-bd95-288417867990", Cacheable.Key.ToString());
+                                    throw new CoreException("S-0000005", "17771eac-511e-4d83-bd95-288417867990", () => Cacheable.Key.ToString());
                                 }
                             }
                         }
@@ -176,7 +176,7 @@ namespace Simplic.Cache
                             {
                                 if (!ignoreIfExists)
                                 {
-                                    throw new CoreException("S-0000005", "8ba4d284-62f7-4c53-8c95-2c9efe5ff3fd", Cacheable.Key.ToString());
+                                    throw new CoreException("S-0000005", "8ba4d284-62f7-4c53-8c95-2c9efe5ff3fd", () => Cacheable.Key.ToString());
                                 }
                             }
                         }
@@ -208,7 +208,7 @@ namespace Simplic.Cache
                         }
                         else
                         {
-                            throw new CoreException("S-0000005", "2f0326bf-bf90-4e22-a689-2ebe41294ccf", Key.ToString());
+                            throw new CoreException("S-0000005", "2f0326bf-bf90-4e22-a689-2ebe41294ccf", () => Key.ToString());
                         }
                     }
                 }
@@ -264,7 +264,7 @@ namespace Simplic.Cache
                 {
                     if (!enableCaching)
                     {
-                        throw new CoreException("S-0000005", "7486f66d-043f-4dc5-bd3a-80f7d1cdbec0", Key.ToString());
+                        throw new CoreException("S-0000005", "7486f66d-043f-4dc5-bd3a-80f7d1cdbec0", () => Key.ToString());
                     }
 
                     if (cache.ContainsKey(new CacheKeyItem(typeof(T), PrepareKey(Key))))
@@ -273,7 +273,7 @@ namespace Simplic.Cache
                     }
                     else
                     {
-                        throw new CoreException("S-0000006", "de1bf46d-87cc-4242-89d5-e71088797581", Key.ToString());
+                        throw new CoreException("S-0000006", "de1bf46d-87cc-4242-89d5-e71088797581", () => Key.ToString());
                     }
                 }
             }
