@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 namespace Simplic.Collections.Generic
 {
     /// <summary>
-    /// Collection which handles internal a list of : new, not changed and deleted items.
+    /// Collection which handles internal a list of: new, not changed and deleted items.
     /// </summary>
     /// <typeparam name="T">Item type</typeparam>
     public class StatefulCollection<T> : ICollection<T>

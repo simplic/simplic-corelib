@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ENV", "ENV", "{0AE4C5C9-EA7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplic.CoreLib.StatefulCollection", "Test\Simplic.CoreLib.StatefulCollection\Simplic.CoreLib.StatefulCollection.csproj", "{B4D8BEBC-C90E-42D6-83C1-8DA451CC21A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplic.CoreLib.ExceptionTest", "Simplic.CoreLib.ExceptionTest\Simplic.CoreLib.ExceptionTest.csproj", "{598DE8CE-905A-4AB2-8355-A77A093A27BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug_x86x_64|Any CPU = Debug_x86x_64|Any CPU
@@ -50,6 +52,12 @@ Global
 		{B4D8BEBC-C90E-42D6-83C1-8DA451CC21A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4D8BEBC-C90E-42D6-83C1-8DA451CC21A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4D8BEBC-C90E-42D6-83C1-8DA451CC21A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{598DE8CE-905A-4AB2-8355-A77A093A27BD}.Debug_x86x_64|Any CPU.ActiveCfg = Debug|Any CPU
+		{598DE8CE-905A-4AB2-8355-A77A093A27BD}.Debug_x86x_64|Any CPU.Build.0 = Debug|Any CPU
+		{598DE8CE-905A-4AB2-8355-A77A093A27BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{598DE8CE-905A-4AB2-8355-A77A093A27BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{598DE8CE-905A-4AB2-8355-A77A093A27BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{598DE8CE-905A-4AB2-8355-A77A093A27BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +66,7 @@ Global
 		{77184F27-F7B4-4245-A9FC-EDBBE5D5BA31} = {3CF243E9-C314-4F05-B7E6-925EECF865F2}
 		{3956D8A9-71B3-49B5-A4F5-16EBB15684E2} = {3CF243E9-C314-4F05-B7E6-925EECF865F2}
 		{B4D8BEBC-C90E-42D6-83C1-8DA451CC21A3} = {3CF243E9-C314-4F05-B7E6-925EECF865F2}
+		{598DE8CE-905A-4AB2-8355-A77A093A27BD} = {3CF243E9-C314-4F05-B7E6-925EECF865F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {57A6E7C5-5F53-442F-ACEA-CEE4119A7B59}
