@@ -56,7 +56,7 @@ steps:
     inputs:
       testSelector: testAssemblies
       testAssemblyVer2: |
-        **\Test\Simplic.CoreLib.*.dll
+        **\Simplic.CoreLib.*.dll
         !**\*TestAdapter.dll
         !**\obj\**
 

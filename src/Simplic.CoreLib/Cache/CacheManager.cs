@@ -88,7 +88,7 @@ namespace Simplic.Cache
                     RemoveObjectNoException<T>(key);
                     if (throwWeakRefException)
                     {
-                        throw new BaseException(10005, "Cache object is not alive, cause the weak reference is out dated.");
+                        throw new CoreException("S-0000001", "08b53e6a-ff10-4f29-b011-83c0fbe8b6f4");
                     }
                     return default(T);
                 }
@@ -139,7 +139,7 @@ namespace Simplic.Cache
                 {
                     if (Cacheable == null)
                     {
-                        throw new BaseException(10001, "Das Cache-Object darf nicht null sein");
+                        throw new CoreException("S-0000002", "9c2917a6-41a7-4dc6-876c-43e6336a610f");
                     }
                     else
                     {
@@ -162,7 +162,7 @@ namespace Simplic.Cache
                             {
                                 if (!ignoreIfExists)
                                 {
-                                    throw new BaseException(10003, String.Format("Ein Cache-Objekt mit dem gleichen Schlüssel ist bereits vorhanden. (Key: {0})", Cacheable.Key.ToString()));
+                                    throw new CoreException("S-0000005", "17771eac-511e-4d83-bd95-288417867990", () => Cacheable.Key.ToString());
                                 }
                             }
                         }
@@ -176,7 +176,7 @@ namespace Simplic.Cache
                             {
                                 if (!ignoreIfExists)
                                 {
-                                    throw new BaseException(10003, String.Format("Ein Cache-Objekt mit dem gleichen Schlüssel ist bereits vorhanden. (Key: {0})", Cacheable.Key.ToString()));
+                                    throw new CoreException("S-0000005", "8ba4d284-62f7-4c53-8c95-2c9efe5ff3fd", () => Cacheable.Key.ToString());
                                 }
                             }
                         }
@@ -197,7 +197,7 @@ namespace Simplic.Cache
                 {
                     if (Key == null)
                     {
-                        throw new BaseException(10001, "Der Cache-Object-Key darf nicht null sein");
+                        throw new CoreException("S-0000001", "97d1454c-1780-442a-a47c-b70e59c06024");
                     }
                     else
                     {
@@ -208,7 +208,7 @@ namespace Simplic.Cache
                         }
                         else
                         {
-                            throw new BaseException(10002, String.Format("Ein Cache-Objekt mit dem angegebenen Schlüssel ist nicht vorhanden. (Key: {0})", Key.ToString()));
+                            throw new CoreException("S-0000005", "2f0326bf-bf90-4e22-a689-2ebe41294ccf", () => Key.ToString());
                         }
                     }
                 }
@@ -227,7 +227,7 @@ namespace Simplic.Cache
                 {
                     if (Key == null)
                     {
-                        throw new BaseException(10001, "Der Cache-Object-Key darf nicht null sein");
+                        throw new CoreException("S-0000004", "cc0a2887-93a8-494c-903c-3eb0cfdb1e43");
                     }
                     else
                     {
@@ -253,18 +253,18 @@ namespace Simplic.Cache
             {
                 if (!enableCaching)
                 {
-                    throw new BaseException(10001, "Caching is not enabled.");
+                    throw new CoreException("S-0000003", "2abb15a7-5350-4c68-8f6c-c35b68027535");
                 }
 
                 if (Key == null)
                 {
-                    throw new BaseException(10001, "Der Cache-Object-Key darf nicht null sein");
+                    throw new CoreException("S-0000004", "f9f90e72-166e-4b48-89d6-153a8ffe3b6c");
                 }
                 else
                 {
                     if (!enableCaching)
                     {
-                        throw new BaseException(10002, String.Format("Ein Cache-Objekt mit dem angegebenen Schlüssel ist nicht vorhanden. (Key: {0})", Key.ToString()));
+                        throw new CoreException("S-0000005", "7486f66d-043f-4dc5-bd3a-80f7d1cdbec0", () => Key.ToString());
                     }
 
                     if (cache.ContainsKey(new CacheKeyItem(typeof(T), PrepareKey(Key))))
@@ -273,7 +273,7 @@ namespace Simplic.Cache
                     }
                     else
                     {
-                        throw new BaseException(10002, String.Format("Ein Cache-Objekt mit dem angegebenen Schlüssel ist nicht vorhanden. (Key: {0})", Key.ToString()));
+                        throw new CoreException("S-0000006", "de1bf46d-87cc-4242-89d5-e71088797581", () => Key.ToString());
                     }
                 }
             }
