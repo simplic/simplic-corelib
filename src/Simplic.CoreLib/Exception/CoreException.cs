@@ -21,9 +21,23 @@ namespace Simplic
         /// Initialize exception instance
         /// </summary>
         /// <param name="code">Unique error code</param>
+        /// <param name="id">Unique exception id</param>
         /// <param name="parameter">Additional parameter for the exception message. Parameters are handled as function,
         /// to minimize the possibility of passing parameters that causes an exception too.</param>
-        public CoreException(string code, string id, params Func<string>[] parameter)
+        public CoreException(string code, string id, params Func<string>[] parameter) : this(code, id, null, parameter)
+        {
+
+        }
+
+        /// <summary>
+        /// Initialize exception instance
+        /// </summary>
+        /// <param name="code">Unique error code</param>
+        /// <param name="id">Unique exception id</param>
+        /// <param name="innerException">Inner exception id</param>
+        /// <param name="parameter">Additional parameter for the exception message. Parameters are handled as function,
+        /// to minimize the possibility of passing parameters that causes an exception too.</param>
+        public CoreException(string code, string id, Exception innerException, params Func<string>[] parameter) : base($"{code}/{id}", innerException)
         {
             Code = code;
             Parameter = new List<string>();
@@ -39,7 +53,7 @@ namespace Simplic
                     {
                         Parameter.Add(param() ?? "");
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         Parameter.Add($"Invalid parameter ({ex})");
                     }
