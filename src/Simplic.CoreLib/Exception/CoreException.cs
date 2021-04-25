@@ -41,7 +41,8 @@ namespace Simplic
         {
             Code = code;
             Parameter = new List<string>();
-
+            Id = id;
+            
             if (parameter != null)
             {
                 foreach (var param in parameter)
@@ -59,8 +60,6 @@ namespace Simplic
                     }
                 }
             }
-
-            Id = id;
         }
 
         /// <summary>
