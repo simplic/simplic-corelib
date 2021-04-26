@@ -86,6 +86,7 @@
     </Compile>
     <Compile Include="Data\PreciseDecimal.cs" />
     <Compile Include="Exception\CoreException.cs" />
+    <Compile Include="Exception\ExceptionType.cs" />
     <Compile Include="Ini\IniFileSettings.cs" />
     <Compile Include="IO\DirectoryHelper.cs" />
     <Compile Include="IO\FileHelper.cs" />
