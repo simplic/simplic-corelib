@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Simplic.Cache
 {
-    #region Delevate
+    #region Delegate
     /// <summary>
     /// Delegate which will be fired, if the cached was cleared
     /// </summary>

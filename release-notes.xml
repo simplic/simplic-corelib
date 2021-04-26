@@ -12,4 +12,7 @@
   <ChangeSet guid="5e3cd488-4467-4879-b825-4141d3772a48">
     <Change type="feature">Add custom exception class.</Change>
   </ChangeSet>
+  <ChangeSet>
+    <Change type="feature">Adds an exception type to determine, whether it is an expected or unexpected exception.</Change>
+  </ChangeSet>
 </ReleaseNotes>

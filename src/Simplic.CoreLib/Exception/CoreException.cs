@@ -22,9 +22,10 @@ namespace Simplic
         /// </summary>
         /// <param name="code">Unique error code</param>
         /// <param name="id">Unique exception id</param>
+        /// <param name="type">Exception type</param>
         /// <param name="parameter">Additional parameter for the exception message. Parameters are handled as function,
         /// to minimize the possibility of passing parameters that causes an exception too.</param>
-        public CoreException(string code, string id, params Func<string>[] parameter) : this(code, id, null, parameter)
+        public CoreException(string code, string id, ExceptionType type, params Func<string>[] parameter) : this(code, id, type, null, parameter)
         {
 
         }
@@ -34,13 +35,16 @@ namespace Simplic
         /// </summary>
         /// <param name="code">Unique error code</param>
         /// <param name="id">Unique exception id</param>
+        /// <param name="type">Exception type</param>
         /// <param name="innerException">Inner exception id</param>
         /// <param name="parameter">Additional parameter for the exception message. Parameters are handled as function,
         /// to minimize the possibility of passing parameters that causes an exception too.</param>
-        public CoreException(string code, string id, Exception innerException, params Func<string>[] parameter) : base($"{code}/{id}", innerException)
+        public CoreException(string code, string id, ExceptionType type, Exception innerException, params Func<string>[] parameter) : base($"{code}/{id}", innerException)
         {
             Code = code;
             Parameter = new List<string>();
+            Id = id;
+            Type = type;
 
             if (parameter != null)
             {
@@ -59,8 +63,6 @@ namespace Simplic
                     }
                 }
             }
-
-            Id = id;
         }
 
         /// <summary>
@@ -77,5 +79,10 @@ namespace Simplic
         /// Gets or sets the parameter for the error message
         /// </summary>
         public IList<string> Parameter { get; set; }
+
+        /// <summary>
+        /// Gets or sets the actual exception type
+        /// </summary>
+        public ExceptionType Type { get; set; }
     }
 }
