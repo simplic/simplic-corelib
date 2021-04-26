@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Simplic
 {
     /// <summary>
-    /// Simplic core exception, should be used when throwing an expected exception
+    /// Simplic core exception, should be used when throwing an expected/unexpected exception
     /// </summary>
     [System.Serializable]
     public class CoreException : System.Exception
