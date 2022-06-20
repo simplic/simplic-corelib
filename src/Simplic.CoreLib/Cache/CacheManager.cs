@@ -330,7 +330,7 @@ namespace Simplic.Cache
         }
 
         /// <summary>
-        /// Leert den gesamten Cache
+        /// Clears the whole cache
         /// </summary>
         public void ClearCache()
         {
@@ -350,7 +350,11 @@ namespace Simplic.Cache
             }
         }
 
-        public void ClearCacheByType(string type)
+        /// <summary>
+        /// Clears the cache and sends cache clear of the specified type
+        /// </summary>
+        /// <param name="type"></param>
+        public void ClearCache(string type)
         {
             lock (_lockObj)
             {
