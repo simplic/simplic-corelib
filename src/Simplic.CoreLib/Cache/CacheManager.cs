@@ -11,7 +11,17 @@ namespace Simplic.Cache
     /// </summary>
     /// <param name="sender">Cache manager isntance</param>
     /// <param name="arg">- Event args instance -</param>
-    public delegate void CacheClearedEventHandler(object sender, EventArgs arg);
+    public delegate void CacheClearedEventHandler(object sender, CacheClearedEventArgs arg);
+    #endregion
+
+    #region Event Args
+    /// <summary>
+    /// EventArgs for the CacheCleared event
+    /// </summary>
+    public class CacheClearedEventArgs : EventArgs
+    {
+        public string CacheType { get; set; }
+    }
     #endregion
 
     /// <summary>
@@ -320,7 +330,7 @@ namespace Simplic.Cache
         }
 
         /// <summary>
-        /// Leert den gesamten Cache
+        /// Clears the whole cache
         /// </summary>
         public void ClearCache()
         {
@@ -335,7 +345,29 @@ namespace Simplic.Cache
 
                 if (CacheCleared != null)
                 {
-                    CacheCleared(this, new EventArgs());
+                    CacheCleared(this, new CacheClearedEventArgs { CacheType = "all" });
+                }
+            }
+        }
+
+        /// <summary>
+        /// Clears the cache and sends cache clear of the specified type
+        /// </summary>
+        /// <param name="type"></param>
+        public void ClearCache(string type)
+        {
+            lock (_lockObj)
+            {
+                foreach (var cacheObject in cache)
+                {
+                    cacheObject.Value.OnRemove();
+                }
+
+                cache = new Dictionary<CacheKeyItem, ICacheable>();
+
+                if (CacheCleared != null)
+                {
+                    CacheCleared(this, new CacheClearedEventArgs { CacheType = type });
                 }
             }
         }
