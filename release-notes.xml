@@ -15,4 +15,7 @@
   <ChangeSet guid="37c8ffdb-53cd-4b19-ac0f-23358dbf0787">
     <Change type="feature">Adds an exception type to determine, whether it is an expected or unexpected exception.</Change>
   </ChangeSet>
+  <ChangeSet guid="5b173afc-4525-4214-a485-74fb1eb107df">
+    <Change type="feature">The cache can now be cleared by a specific type to decrease load time.</Change>
+  </ChangeSet>
 </ReleaseNotes>
