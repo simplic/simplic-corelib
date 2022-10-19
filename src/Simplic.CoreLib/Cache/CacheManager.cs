@@ -10,7 +10,7 @@ namespace Simplic.Cache
     /// Delegate which will be fired, if the cached was cleared
     /// </summary>
     /// <param name="sender">Cache manager isntance</param>
-    /// <param name="arg">- Event args instance -</param>
+    /// <param name="arg">Event args instance</param>
     public delegate void CacheClearedEventHandler(object sender, CacheClearedEventArgs arg);
     #endregion
 
