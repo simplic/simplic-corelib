@@ -25,7 +25,7 @@ namespace Simplic.Cache
     #endregion
 
     /// <summary>
-    /// Verwaltet CacheObjects
+    /// Manages cache objects
     /// </summary>
     public class CacheManager
     {
