@@ -64,6 +64,7 @@
     <Compile Include="Cache\ICacheable.cs" />
     <Compile Include="Cache\TypedWeakReference.cs" />
     <Compile Include="Cache\WeakReferenceCachable.cs" />
+    <Compile Include="Collections\Generic\RangeObservableCollection.cs" />
     <Compile Include="Collections\Generic\StatefulCollection\ClearCollectionEventArgs.cs" />
     <Compile Include="Collections\Generic\StatefulCollection\CollectionClearedEventArgs.cs" />
     <Compile Include="Collections\Generic\StatefulCollection\CollectionCommittedEventArgs.cs" />
